@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caculator</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+    * {
+      font-size: 100%;
+      transform: scale(1.05);
+      font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .text-cyan-500 {
+      color: aqua;
+    }
+
+    .calculator {
+      max-width: min-content;
+      max-height: 100vh;
+      margin: 0 auto;
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+  <div class="calculator border-2 rounded-lg mt-20 bg-white">
+    <input type="number" class="border-2 mb-1 rounded-sm" id="output" />
+    <div class="border-2 mb-5 rounded-sm w-full text-xs text-gray-400" id="allInputBox"></div>
+    <div class="grid grid-cols-4 gap-2" id="buttonArea"></div>
+  </div>
+</body>
+<script src="index.js"></script>
+
+</html>

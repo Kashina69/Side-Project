@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animated login Page</title>
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+    * {
+      margin: 0%;
+      padding: 0%;
+      box-sizing: border-box;
+      font-family: Montserrat;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #c9d6ff;
+      background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+    }
+
+    .mainLoginSection {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 52vw;
+      height: 62vh;
+      background: white;
+      border-radius: 20px;
+      box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+      position: relative;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .accounts {
+      display: flex;
+    }
+
+    .svg {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgb(224, 220, 220);
+      height: 40px;
+      width: 40px;
+      margin-left: 15px;
+      border-radius: 5px;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      cursor: pointer;
+    }
+
+    .signInButton {
+      background-color: #512da8;
+      color: white;
+      padding: 10px 45px;
+      border-radius: 8px;
+      font-size: 12px;
+      font: bolder;
+      cursor: pointer;
+      margin-bottom: 40px;
+    }
+
+    .forgot {
+      cursor: pointer;
+    }
+
+    .forgot:hover {
+      color: black;
+    }
+
+    /* Sign In  */
+    .signIn {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      opacity: 0;
+      animation: start 1s forwards;
+    }
+
+    .signIn>p {
+      color: rgb(97, 96, 96);
+      font-size: 13px;
+    }
+
+    .signIn>input {
+      width: 80%;
+      height: 35px;
+      border: none;
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .signIn>* {
+      margin: 8px;
+    }
+
+    .fadeToRight {
+      animation: moveAndFade 1s forwards;
+    }
+
+    @keyframes moveAndFade {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(20%);
+        visibility: hidden;
+      }
+    }
+
+    @keyframes start {
+      0% {
+        transform: translateX(30%);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* toggler */
+
+    .toggler {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      height: 100%;
+      background-color: #512da8;
+      background: linear-gradient(to right, #5c6bc0, #512da8);
+      width: 50%;
+      overflow: hidden;
+      transition: all 0.6s ease-in-out;
+      border-top-left-radius: 25%;
+      border-bottom-left-radius: 25%;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+    }
+
+    .toggler>* {
+      margin-top: 28px;
+      color: white;
+    }
+
+    .toggler>p {
+      font-size: smaller;
+      text-align: center;
+    }
+
+    .toggler .button {
+      border: 1px solid white;
+      padding: 10px 45px;
+      border-radius: 8px;
+      font-size: 12px;
+      font: bolder;
+      cursor: pointer;
+    }
+
+    .togglerToLeft {
+      transition: all 0.6s ease-in-out;
+      transform: translateX(-100%);
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
+      border-top-right-radius: 25%;
+      border-bottom-right-radius: 25%;
+    }
+
+    /* signup  */
+
+    .signUp {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      visibility: hidden;
+      transform: translateX(-50%);
+    }
+
+    .signUp>p {
+      color: rgb(97, 96, 96);
+      font-size: 13px;
+    }
+
+    .signUp>input {
+      width: 80%;
+      height: 35px;
+      border: none;
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .signUp>* {
+      margin: 8px;
+    }
+
+    .comeToRight {
+      visibility: hidden;
+      animation: comeToRight 2s forwards;
+    }
+
+    @keyframes comeToRight {
+      0% {
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateX(0%);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .mainLoginSection {
+        width: 90vw;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mainLoginSection">
+    <div class="signIn" id="signIn">
+      <h1 class="center">Sign In</h1>
+      <div class="accounts">
+        <div class="svg">
+          <svg xmlns="http://www.w3.org/2000/svg" height=".8em" viewBox="0 0 640 512">
+            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M386.061 228.496c1.834 9.692 3.143 19.384 3.143 31.956C389.204 370.205 315.599 448 204.8 448c-106.084 0-192-85.915-192-192s85.916-192 192-192c51.864 0 95.083 18.859 128.611 50.292l-52.126 50.03c-14.145-13.621-39.028-29.599-76.485-29.599-65.484 0-118.92 54.221-118.92 121.277 0 67.056 53.436 121.277 118.92 121.277 75.961 0 104.513-54.745 108.965-82.773H204.8v-66.009h181.261zm185.406 6.437V179.2h-56.001v55.733h-55.733v56.001h55.733v55.733h56.001v-55.733H627.2v-56.001h-55.733z" />
+          </svg>
+        </div>
+        <div class="svg">
+          <svg xmlns="http://www.w3.org/2000/svg" height=".8em" viewBox="0 0 320 512">
+            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+          </svg>
+        </div>
+        <div class="svg">
+          <svg xmlns="http://www.w3.org/2000/svg" height=".8em" viewBox="0 0 496 512">
+            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+          </svg>
+        </div>
+        <div class="svg">
+          <svg xmlns="http://www.w3.org/2000/svg" height=".8em" viewBox="0 0 448 512">
+            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+          </svg>
+        </div>
+      </div>
+      <p class="center">or use your email password</p>
+      <input type="email" placeholder="Email" />
+      <input type="password" placeholder="Passowrd" />
+      <p class="center forgot">Forgot Your Passowrd</p>
+      <div class="signInButton">SIGN IN</div>
+    </div>
+
+    <div class="signUp" id="signUp">
+      <h1 class="center">LOGIN </h1>
+      <div class="accounts">
+        <div class="svg">
+          <svg xmlns="http://www.w3.org/2000/svg" height=".8em" viewBox="0 0 640 512">
+            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M386.061 228.496c1.834 9.692 3.143 19.384 3.143 31.956C389.204 370.205 315.599 448 204.8 448c-106.084 0-192-85.915-192-192s85.916-192 192-192c51.864 0 95.083 18.859 128.611 50.292l-52.126 50.03c-14.145-13.621-39.028-29.599-76.485-29.599-65.484 0-118.92 54.221-118.92 121.277 0 67.056 53.436 121.277 118.92 121.277 75.961 0 104.513-54.745 108.965-82.773H204.8v-66.009h181.261zm185.406 6.437V179.2h-56.001v55.733h-55.733v56.001h55.733v55.733h56.001v-55.733H627.2v-56.001h-55.733z" />
+          </svg>
+        </div>
+        <div class="svg">
+          <svg xmlns="http://www.w3.org/2000/svg" height=".8em" viewBox="0 0 320 512">
+            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
+          </svg>
+        </div>
+        <div class="svg">
+          <svg xmlns="http://www.w3.org/2000/svg" height=".8em" viewBox="0 0 496 512">
+            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+          </svg>
+        </div>
+        <div class="svg">
+          <svg xmlns="http://www.w3.org/2000/svg" height=".8em" viewBox="0 0 448 512">
+            <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+          </svg>
+        </div>
+      </div>
+      <p class="center">or use your email password</p>
+      <input type="text" placeholder="Name" />
+      <input type="email" placeholder="Email" />
+      <input type="password" placeholder="Passowrd" />
+      <div class="signInButton">Login</div>
+    </div>
+
+    <div class="toggler" id="toggler">
+      <h1>Hello, Friend!</h1>
+      <p>Register with your personal details to use all of site features</p>
+      <div class="button" id="togglerButton" onClick="moveLeftRight()">
+        LOGIN
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  moveLeftRight = () => {
+    const togglerButton = document.getElementById("togglerButton");
+    const currentText = togglerButton.innerText;
+    document.getElementById("toggler").classList.toggle("togglerToLeft");
+    togglerButton.innerHTML = currentText === "LOGIN" ? "SIGN IN" : "LOGIN";
+    document.getElementById("signIn").classList.toggle("fadeToRight");
+    document.getElementById("signUp").classList.toggle("comeToRight");
+  };
+</script>
+
+</html>

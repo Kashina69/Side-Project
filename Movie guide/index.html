@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../tailwind.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300&family=Raleway:wght@300;400;500;600;700&family=Ubuntu:wght@300;400;500;700&display=swap');
+      * {
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+        color: white;
+        font-family: poppins;
+        font-weight:600 ;
+      }
+      input{
+        outline-style: none;
+      }
+
+    </style>
+    <title>Movie Data</title>
+  </head>
+  <body class="bg-black flex justify-center items-center md:h-screen">
+    <div class="bg-[#ffffff1a] md:w-[69%] md:p-8">
+      <div class="flex md:justify-between justify-center  ">
+
+        <div id="searchOnMobile" class=" w-[89%]">
+            <div class="mb-3">
+                <div class="relative mb-4 flex flex-wrap items-stretch">
+                  <input
+                    type="search"
+                    class="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-neutral-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                    placeholder="Search"
+                    aria-label="Search"
+                    aria-describedby="button-addon1" />
+              
+                  <!--Search button-->
+                  <button
+                    class="relative z-[2] flex items-center rounded-r bg-primary px-6 py-2.5 text-xs hover:bg-white hover:text-[#f8b92a] font-medium uppercase leading-tight text-white bg-[#f8b92a] shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg group "
+                    type="button"
+                    id="animationButton"
+                    data-te-ripple-init
+                    data-te-ripple-color="light">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      class="h-5 w-5"
+                      
+                      >
+                      <path
+                        fill="#f8b92a"
+                        d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                        clip-rule="evenodd" class=" group-hover:visible"/>
+                      <path
+                        fill="#000000"
+                        d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                        clip-rule="evenodd" class="visible group-hover:hidden"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center m-3 md:flex-row flex-col" id="lowersection">
+        <img src="https://m.media-amazon.com/images/M/MV5BYmZkYWRlNWQtOGY0Zi00MWZkLWJiZTktNjRjMDY4MTU2YzAyXkEyXkFqcGdeQXVyMzYzNzc1NjY@._V1_SX300.jpg" alt="" />
+
+        <div class="md:m-14 m-7" id="right">
+          <h1>Avatar</h1>
+
+          <div>
+            <p>2009</p>
+            <p>⭐</p>
+            <p>PG-13</p>
+          </div>
+
+          <div id="category">
+            <p>Action</p>
+            <p>Adventure</p>
+            <p>Fantasy</p>
+          </div>
+
+          <div id="Actors">
+            <p class="text-[#ababab]">
+              Lorem ipsum dolor sit amet consectetur adipisicing.
+            </p>
+          </div>
+
+          <div id="plot">
+            <h1>Plot:</h1>
+            <p class="text-[#ababab]">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel quo
+              corrupti autem fuga ducimus dolor voluptate atque accusantium,
+              reiciendis est.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    let getMovieInfo =()=>{
+        let lowersection = document.getElementById("lowersection")
+        let searchInput = document.getElementById("input")
+        const apikey ="c357faf5"
+        const url = `https://www.omdbapi.com/?t=${searchInput.value}&apikey=${apikey}`
+
+//         fetch(url).then((res)=>res.json()).then((data)=>{
+
+//             let {Poster , Title , Year , Rated , Genre , Actors , Plot , Error}= data;
+
+//             if(data.Response == "True"){
+// lowersection.innerHTML = `<h1>${data}<h1/>`
+//             }
+// console.log(data);
+//         })
+        
+const Response = {
+    "Title": "Spider Man: Lost Cause",
+    "Year": "2014",
+    "Rated": "N/A",
+    "Released": "26 Sep 2014",
+    "Runtime": "140 min",
+    "Genre": "Action, Adventure, Comedy",
+    "Director": "Joey Lever",
+    "Writer": "Steve Ditko, Stan Lee, Joey Lever",
+    "Actors": "Joey Lever, Craig Ellis, Teravis Ward",
+    "Plot": "Peter Parker a lone child discovers that his parents were in a horrifying plot to make mankind change. getting bitten by his fathers invention he develops super powers to tries to find answers to his whole life, try and juggle a r...",
+    "Language": "English",
+    "Country": "United Kingdom",
+    "Awards": "N/A",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BYmZkYWRlNWQtOGY0Zi00MWZkLWJiZTktNjRjMDY4MTU2YzAyXkEyXkFqcGdeQXVyMzYzNzc1NjY@._V1_SX300.jpg",
+    "Ratings": [
+        {
+            "Source": "Internet Movie Database",
+            "Value": "4.0/10"
+        }
+    ],
+    "Metascore": "N/A",
+    "imdbRating": "4.0",
+    "imdbVotes": "461",
+    "imdbID": "tt2803854",
+    "Type": "movie",
+    "DVD": "N/A",
+    "BoxOffice": "N/A",
+    "Production": "N/A",
+    "Website": "N/A",
+    "Response": "True"
+} 
+    }
+  </script>
+</html>

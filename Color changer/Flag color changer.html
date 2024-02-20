@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color changer Project</title>
+    <style>
+        .collection {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .button {
+            width: 40%;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Color scheme Switcher</h1>
+    <div class="collection"><span class="button">red</span>
+        <span class="button">orange</span>
+        <span class="button">yellow</span>
+        <span class="button">green</span>
+        <span class="button">blue</span>
+        <span class="button">purple</span>
+    </div>
+
+</body>
+<script>
+    const button = document.querySelectorAll(".button")
+    const body = document.querySelector("body")
+
+    button.forEach(element => {
+        element.style.backgroundColor = element.innerHTML;
+        element.addEventListener("click", function (e) {
+            body.style.backgroundColor = element.innerHTML
+        })
+    });
+</script>
+
+</html>
